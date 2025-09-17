@@ -1,5 +1,5 @@
-import Transaction from "../models/Transaction"
-import stripe, { Stripe } from 'stripe'
+import Transaction from "../models/Transaction.js"
+import stripe from 'stripe'
 
 
 const plans = [
@@ -26,7 +26,7 @@ const plans = [
         }
 ]
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY)
+
 
 //API controller for getting all plans
 export const getPlans = async (req,res)=>{
