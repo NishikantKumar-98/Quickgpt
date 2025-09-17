@@ -29,7 +29,7 @@ const [search, setSearch] = useState('')
         <div className='flex-1 overflow-y-scroll mt-3 text-sm space-y-3'>
             {
                 chats.filter((chat)=>chat.messages[0]? chat.messages[0]?.content.toLowerCase().includes(search.toLowerCase()) : chat.name.toLowerCase().includes(search.toLowerCase())).map((chat)=>(
-                    <div key={chat._id} className='p-2 px-4 dark:bg-[#57317C]/10 border border-gray-300 dark:border-[#80609F]/15 rounded-md cursor-pointer flex justify-between group'>
+                    <div onClick={()=>{navigate('/'); setSelectedChat(chat); setIsMenuOpen(false)}} key={chat._id} className='p-2 px-4 dark:bg-[#57317C]/10 border border-gray-300 dark:border-[#80609F]/15 rounded-md cursor-pointer flex justify-between group'>
                         <div>
                             <p className='truncate w-full'>
                                 {chat.messages.length > 0 ? chat.messages[0].content.slice(0,32): chat.name}
@@ -44,7 +44,7 @@ const [search, setSearch] = useState('')
         </div>
         
         {/* community Images */}
-        <div onClick={()=>{navigate('/community')}} className='flex items-center gap-2 p-3 mt-4 border border-gray-300 dark:border-white/15 rounded-md cursor-pointer hover:scale-103 transition-all'>
+        <div onClick={()=>{navigate('/community'); setIsMenuOpen(false)}} className='flex items-center gap-2 p-3 mt-4 border border-gray-300 dark:border-white/15 rounded-md cursor-pointer hover:scale-103 transition-all'>
             <img src={assets.gallery_icon} className='w-4.5 not-dark:invert' alt="" />
             <div className='flex flex-col text-sm'>
                     <p>Community Images</p>
@@ -52,7 +52,7 @@ const [search, setSearch] = useState('')
         </div>
 
         {/* credit purchase option */}
-        <div onClick={()=>{navigate('/credits')}} className='flex items-center gap-2 p-3 mt-4 border border-gray-300 dark:border-white/15 rounded-md cursor-pointer hover:scale-103 transition-all'>
+        <div onClick={()=>{navigate('/credits'); setIsMenuOpen(false)}} className='flex items-center gap-2 p-3 mt-4 border border-gray-300 dark:border-white/15 rounded-md cursor-pointer hover:scale-103 transition-all'>
             <img src={assets.diamond_icon} className='w-4.5 dark:invert' alt="" />
             <div className='flex flex-col text-sm'>
                    <p>Credits: {user?.credits}</p>
