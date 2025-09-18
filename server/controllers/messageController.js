@@ -73,7 +73,7 @@ export const imageMessageController = async (req, res)=>{
            //upload to imagekit media library
            const uploadResponse = await imagekit.upload({file:base64Image,fileName: `${Date.now()}.png`, folder:"quickgpt"})
 
-           const reply = {role:'assistant',content:uploadResponse.url,timestamp:Date.now(),isImage:false,isPublished}
+           const reply = {role:'assistant',content:uploadResponse.url,timestamp:Date.now(),isImage:true,isPublished}
 
            res.json({success: true, reply})
 

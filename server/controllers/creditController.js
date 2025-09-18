@@ -1,5 +1,5 @@
 import Transaction from "../models/Transaction.js"
-import stripe from 'stripe'
+import Stripe from 'stripe'
 
 
 const plans = [
@@ -26,7 +26,7 @@ const plans = [
         }
 ]
 
-
+const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 
 //API controller for getting all plans
 export const getPlans = async (req,res)=>{
@@ -56,7 +56,7 @@ export const purchasePlan = async (req,res)=>{
             credits:plan.credits,
             isPaid: false
         })
-        const {origin} = req.header
+        const origin = req.headers.origin || "http://localhost:5173";
         const session = await stripe.checkout.sessions.create({
   
   line_items: [
