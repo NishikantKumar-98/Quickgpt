@@ -46,7 +46,7 @@ const ChatBox = () => {
       setLoading(false)
     }
   }
-
+//created by Nishikant
  useEffect(()=>{
   if(selectedChat){
     setMessages(selectedChat.messages)

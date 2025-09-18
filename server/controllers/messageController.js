@@ -14,7 +14,6 @@ export const textMessageController = async (req,res)=>{
          if(req.user.credits<1){
             return res.json({success: false, message: "you don't have enough credits to use this feature"})
          }
-
         const {chatId, prompt} = req.body
 
         const chat = await Chat.findOne({userId, _id:chatId})
@@ -86,4 +85,7 @@ export const imageMessageController = async (req, res)=>{
         res.json({success: false,message: error.message})
     }
 }
+
+
+//created by Nishikant
 

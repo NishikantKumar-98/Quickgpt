@@ -16,6 +16,7 @@ const Community = () => {
       }else{
         toast.error(data.message)
       }
+      //created by Nishikant
     } catch (error) {
       toast.error(error.message)
     }

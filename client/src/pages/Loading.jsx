@@ -11,7 +11,7 @@ useEffect(()=>{
   const timeout = setTimeout(()=>{
     fetchUser()
     navigate('/')
-
+//created by Nishikant
 
   },8000)
   return ()=>clearTimeout(timeout)

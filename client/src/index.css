@@ -6,7 +6,7 @@
 
 @custom-variant dark (&:where(.dark, .dark *));
 
-
+//created by Nishikant
 
 *{
   font-family: "Outfit",sans-serif;
